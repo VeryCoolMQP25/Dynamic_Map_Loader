@@ -28,7 +28,7 @@ class MapLoaderNode(Node):
 def main(args=None):
     rclpy.init(args=args)
     node = MapLoaderNode()
-    node.load_map('/path/to/your/map.yaml')  # Replace with your map file path
+    node.load_map('/home/tori/Maps/floor4.yaml')  
     rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()
