@@ -8,7 +8,7 @@ class DynamicMapLoader(Node):
         super().__init__('dynamic_map_loader')
         self.client = self.create_client(LoadMap, '/map_server/load_map')
         self.subscription = self.create_subscription(
-            String, '/elevator_button', self.button_callback, 10)
+            String, '/elevator_button', self.button_callback, 10) # determines button pressed (Vivek publishes to this topic)
         self.get_logger().info("Dynamic Map Loader Node Started")
 
     def button_callback(self, msg):
