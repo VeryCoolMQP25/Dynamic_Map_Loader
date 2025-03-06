@@ -14,7 +14,6 @@ setup(
     maintainer_email='your_email@example.com',
     description='Map loading node for ROS 2',
     license='TODO',
-    tests_require=['pytest'],
     entry_points={
         'console_scripts': [
             'map_loader = map_loader.map_loader:main'
