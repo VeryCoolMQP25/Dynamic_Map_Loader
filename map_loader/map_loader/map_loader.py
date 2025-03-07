@@ -16,7 +16,7 @@ class DynamicMapLoader(Node):
         map_dict = {
             "Floor1": "/home/tori/Maps/map_Unity1.yaml",
             "Floor2": "/home/tori/Maps/map_Unity2.yaml",
-            "Floor3": "/home/tori/Maps/map_Unity3.yaml",
+            "Floor3": "/home/suki/ros2_ws/src/Unity-Coordinates/map_Unity3.yaml",
             "Floor4": "/home/tori/Maps/map_Unity4.yaml",
             "Floor5": "/home/tori/Maps/map_Unity5.yaml",
         }
