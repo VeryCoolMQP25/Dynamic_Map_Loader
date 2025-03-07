@@ -1,6 +1,6 @@
-# Node to handle switching maps when moving between floors
+## Node to handle switching maps when moving between floors
 
-## Subscribed to the following topic:
+Subscribed to the following topic:
 /elevator_button (std_msgs/String)
 
 Switches between maps depending on button pressed. 
