@@ -42,7 +42,7 @@ class DynamicMapLoader(Node):
     def callback(self, future):
         try:
             response = future.result()
-            self.get_logger().info(f"Service Response: {response}")
+            self.get_logger().info(f"Service Response: {response.result}")
             if response.result:
                 self.get_logger().info("Map loaded successfully!")
             else:
