@@ -1,24 +1,25 @@
 import rclpy
 from rclpy.node import Node
 from nav2_msgs.srv import LoadMap
-from std_msgs.msg import String  # Assuming button presses published as strings
+from std_msgs.msg import String  # Assuming button presses are published as strings
 
 class DynamicMapLoader(Node):
     def __init__(self):
         super().__init__('dynamic_map_loader')
         self.client = self.create_client(LoadMap, '/map_server/load_map')
         self.subscription = self.create_subscription(
-            String, '/elevator_button', self.button_callback, 10) # determines button pressed (Vivek publishes to this topic)
+            String, '/elevator_button', self.button_callback, 10  # Vivek publishes to this topic
+        )
         self.get_logger().info("Dynamic Map Loader Node Started")
 
     def button_callback(self, msg):
         # Map button input to the corresponding map file
         map_dict = {
             "Floor1": "/home/suki/ros2_ws/src/Unity-Coordinates/map_Unity1.yaml",
-            "Floor2": "/home/tori/Maps/map_Unity2.yaml",
+            "Floor2": "/home/suki/ros2_ws/src/Unity-Coordinates/map_Unity2.yaml",
             "Floor3": "/home/suki/ros2_ws/src/Unity-Coordinates/map_Unity3.yaml",
-            "Floor4": "/home/tori/Maps/map_Unity4.yaml",
-            "Floor5": "/home/tori/Maps/map_Unity5.yaml",
+            "Floor4": "/home/suki/ros2_ws/src/Unity-Coordinates/map_Unity4.yaml",
+            "Floor5": "/home/suki/ros2_ws/src/Unity-Coordinates/map_Unity5.yaml",
         }
 
         map_path = map_dict.get(msg.data, None)
@@ -30,7 +31,7 @@ class DynamicMapLoader(Node):
             self.get_logger().warn(f"No map found for button: {msg.data}")
 
     def send_request(self, map_path):
-        while not self.client.wait_for_service(timeout_sec=2.0):
+        while not self.client.wait_for_service(timeout_sec=5.0):  # Increased timeout
             self.get_logger().info('Waiting for map_server service...')
 
         request = LoadMap.Request()
