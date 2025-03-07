@@ -5,9 +5,8 @@ Subscribed to the following topic:
 
 Switches between maps depending on button pressed. 
 If the button for floor 4 is pressed for instance, a string formatted as "Floor4" should be published to this topic. 
-The node handles the mapping between the string and its corresponding map. 
 
-The node uses the service client /map_server/load_map to change the map. 
+The node uses the service client /map_server/load_map to dynamically update the map. 
 
 To run:
 ```ros2 run map_loader map_loader```
