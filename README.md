@@ -1,4 +1,4 @@
-# Node to handle switching maps when moving between floors
+# Dynamic Map Loader
 Switches between maps depending on button pressed. 
 The node uses the service client /map_server/load_map to dynamically update the map. 
 
