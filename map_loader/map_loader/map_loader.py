@@ -39,16 +39,15 @@ class DynamicMapLoader(Node):
         future = self.client.call_async(request)
         future.add_done_callback(self.callback)
 
-    def callback(self, future):
-        try:
-            response = future.result()
-            self.get_logger().info(f"Service Response: {response.result}")
-            if response.result:
-                self.get_logger().info("Map loaded successfully!")
-            else:
-                self.get_logger().error("Failed to load map!")
-        except Exception as e:
-            self.get_logger().error(f"Service call failed: {e}")
+def callback(self, future):
+    try:
+        response = future.result()
+        if response.result:
+            self.get_logger().info("Map loaded successfully!")
+        else:
+            self.get_logger().warn("Map might have loaded despite response 0 (super fun bugs yay)!")
+    except Exception as e:
+        self.get_logger().error(f"Service call failed: {e}")
 
 def main(args=None):
     rclpy.init(args=args)
