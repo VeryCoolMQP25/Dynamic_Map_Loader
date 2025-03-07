@@ -15,13 +15,12 @@ class DynamicMapLoader(Node):
     def button_callback(self, msg):
         # Map button input to the corresponding map file
         map_dict = {
-            "Floor1": "/home/suki/ros2_ws/src/Unity-Coordinates/map_Unity1.yaml",
-            "Floor2": "/home/suki/ros2_ws/src/Unity-Coordinates/map_Unity2.yaml",
-            "Floor3": "/home/suki/ros2_ws/src/Unity-Coordinates/map_Unity3.yaml",
-            "Floor4": "/home/suki/ros2_ws/src/Unity-Coordinates/map_Unity4.yaml",
-            "Floor5": "/home/suki/ros2_ws/src/Unity-Coordinates/map_Unity5.yaml",
+            "Floor1": "/home/tori/Maps/map_Unity1.yaml",
+            "Floor2": "/home/tori/Maps/map_Unity2.yaml",
+            "Floor3": "/home/tori/Maps/map_Unity3.yaml",
+            "Floor4": "/home/tori/Maps/map_Unity4.yaml",
+            "Floor5": "/home/tori/Maps/map_Unity5.yaml",
         }
-
         map_path = map_dict.get(msg.data, None)
 
         if map_path:
